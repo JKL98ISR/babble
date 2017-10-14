@@ -122,7 +122,6 @@ function printMsg(msg){
     topBar.appendChild(date);
     var canDelete=msg.email && msg.email==Babble.user.email;
     var deleteB=document.createElement("button");
-    deleteB.innerHTML="&nbsp";
     if(canDelete){
         deleteB.setAttribute("aria-label", "Delete Message");
         deleteB.innerHTML="x";
@@ -131,6 +130,8 @@ function printMsg(msg){
             Babble.deleteMessage(msgL.id);
             msgL.remove();
         };
+    } else {
+        deleteB.style.color="transparent !important";
     }
     topBar.appendChild(deleteB);
     var textDiv=document.createElement("div");
