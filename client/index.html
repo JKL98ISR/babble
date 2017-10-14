@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="styles/styleSheet.css" />
+<title>Vegans - Babble</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="scripts/Babble.js"></script>
+<script src="scripts/main.js"></script>
+</head>
+<body>
+	<header>
+		<div id="LogoContainer">
+				<img id="Logo" src="images/Babble_logo.png" alt="Babble">				
+		</div>
+		<h1 id="ChatName">Vegans</h1>		
+	</header>
+	<nav>
+	</nav>
+	<main id="main">
+		<dl class="stats">
+				<dt><img src="images/massages.png" alt="Massages"></dt>
+				<dd  id="msgAmount">0</dd>
+				<dt><img src="images/users.png" alt="Users"></dt>
+				<dd id="users">0</dd>
+		</dl>
+		<ol id="MsgContainer">	
+		</ol>
+		<form>
+			<div class="Growable userText">
+				<pre><span></span><br><br></pre>
+				<textarea id="textMsg" placeholder="Enter your message here"></textarea>
+			</div>
+			<button type="button" aria-label="Send Message" onclick="sendMsg()" tabindex="1">
+				<img src="images/sendButton.png" alt="Send Message" id="sendButton">
+			</button>
+		</form>		
+	</main>	
+	<div id="loginModal">
+		<div class='login'>	
+			<h2>Who are you?</h2>
+			<label>Full Name:&nbsp;&nbsp;</label> 
+			<input type="text" id="rUsr"/> 
+			<br><br>
+			<label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+			<input type="text" class="emailIn" id="rEmail"/>
+			<br>
+			<div class="button-div">
+				<button type="button" class="save" aria-label="Send Message" onclick="login()" tabindex="0">
+					Save
+				</button>	
+				<button type="button" class="anon" aria-label="Stay Anonymous" onclick="deleteLogin()" tabindex="0">
+						Stay Anonymous
+				</button>
+			</div>
+					
+		</div>	
+		<div class='greyUp'>
+		</div>
+	</div>
+	</body>
+</html>

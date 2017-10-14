@@ -1,0 +1,292 @@
+dt {
+    display: inline-block;
+}
+dd {
+    display: inline;
+    margin: 0px;
+}
+dl{
+    margin: 0px;
+}
+header div{
+    display: block;
+    background-color: #353744;
+    height: 80px;
+    position: relative;
+}
+cite{
+    padding-right: 10px;
+    padding-left: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    display: inline;
+}
+header{
+    position: relative;
+}
+.greyUp{
+    position: fixed;
+    z-index: 98;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: gray;
+    opacity: 0.5; 
+}
+button{
+    float: right;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+button:focus{
+    outline: lightgray solid 1px !important;
+    color: black !important;
+}
+h1{
+    margin: 0;
+    padding: 8px;
+    font-size: 30px;
+    position: relative;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+.stats{
+    position: absolute;
+    top: -34px;
+    right: 20px;
+}
+.stats img{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.stats span{
+    font-family: 'Nunito', 'Arial Bold', sans-serif, Impact, Haettenschweiler;
+}
+main{
+    height: calc(100vh - 143px);
+    position: relative;
+}
+@media screen and (min-width: 638px){
+    form {
+        border-top-width: 1px !important; 
+        border-color: gray !important; 
+        background-color: white !important; 
+    }
+    main, h1, form{
+         margin-left: 15%;
+    }
+     nav{
+        position: absolute;
+        padding-right: 15%;
+        background-color: #61d290;
+        bottom: 0%;
+        top: 80px;
+    }
+    .login{
+        width: 300px;
+        height: 180px;
+        top: calc(50% - 95px);
+        right: calc(50% - 160px);
+    }
+    .emailIn{
+        margin-left: 0.22rem !important;
+    }
+}
+@media screen and (max-width: 639px){
+    main, form{
+         left: 0%;
+    }
+    .login{
+        top: 5%;
+        right: 5%;
+        bottom: 5%;
+        left: 5%;
+    }
+    .login input,
+    .login label {
+        display: block;
+    }
+    .login button{  
+        display: inline;
+        vertical-align: bottom;        
+    }
+}
+.login{
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: fixed;
+    z-index: 99;
+    background-color: #f6f6f6;
+}
+.login h2{
+    font-weight: lighter;
+}
+.login input {
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #D3D3D3 !important;
+    border-radius: 5rem;
+}
+.login label {
+    font-weight: lighter;
+    color: grey;
+}
+.login div button{
+    padding: 5px;
+    font-weight: lighter;
+    float: right;
+    margin: 10px;
+}
+.login .button-div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.login .anon {
+    background: linear-gradient(lightgray, grey);
+}
+.login .save {
+    padding-right: 20px;
+    padding-left: 20px;
+    color: white;
+    background: linear-gradient(#A7EA41, green);
+}
+ol{
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    padding: 0;
+    overflow-y: auto;
+}
+body{
+    background-color: #f6f6f6;
+    margin: 0px;
+}
+form{
+    width: 100%;
+    margin: 0;
+    border-style: solid;
+    border-width: 0;
+    position: relative;  
+    padding-bottom: 2px;
+}
+form button{
+    top: calc(50% - 25px);
+    right: 0;
+    position: absolute;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.usr-img{
+    float: left;
+    height: 30px;
+    width: 30px;
+    border-radius: 1rem;
+    margin-right: 5px;
+}
+il{
+    position: relative;
+    display: block;
+    padding: 10px;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus,
+button:active,
+button:hover, 
+input:focus,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+}
+time{
+    color: gray;
+    font-size: 10px;
+}
+.msgText{
+    border-radius: 0.5rem;
+    max-width: calc(100% - 40px);
+    border-style: solid; 
+    border-width: 1px;
+    border-color: gray;
+    display: inline-block;
+    background-color: white; 
+}
+.msgText button{
+    color: transparent;
+}
+.msgText:focus button,
+.msgText:hover button{
+    color: black;
+}
+.msgText:focus,
+.msgText:hover{
+    outline: 0px !important;
+    background-color: lightgray; 
+}
+.usr-msg{
+    max-width: 600px;
+    border-radius: 0.5rem;
+    border: 0px;
+}
+.userText{
+    width: calc(100% - 110px) !important;
+    min-height: 60px;
+    overflow: hidden !important;
+}
+.userText pre{
+    color: transparent;
+}
+.Growable { 
+    height: 100%;
+    max-height: 300px; 
+    width: 100%; 
+    font-family: 'Nunito', inherit;
+	font-size: inherit;
+	position: relative;	
+    overflow: auto;
+    margin: 0 !important;
+}
+
+.Growable textarea,
+.Growable pre {
+	margin: 0;
+	padding: 10px;
+    font-family: 'Nunito', monospace;
+	font-size: 14px;
+	box-sizing: border-box;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.Growable textarea {   
+	width: calc(100% - 10px);
+	resize: none;
+	border: none;
+	position: absolute;
+	top: 1px; left: 0px;
+	height: 100%;
+    overflow: visible;
+    border-radius: 0.5rem;
+    margin-left: 10px !important;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    margin: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
