@@ -5,8 +5,16 @@
 <link rel="stylesheet" type="text/css" href="styles/styleSheet.css" />
 <title>Vegans - Babble</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script async src="scripts/Babble.js"></script>
-<script async src="scripts/main.js"></script>
+<script async>
+	var script1 = document.createElement('script');
+	script1.src = "scripts/Babble.js";
+	script1.async = false;
+	document.head.appendChild(script1);
+	var script2 = document.createElement('script');
+	script2.src = "scripts/main.js";
+	script2.async = false;
+	document.head.appendChild(script2);
+</script>
 </head>
 <body>
 	<header>
@@ -27,11 +35,12 @@
 		<ol id="MsgContainer">	
 		</ol>
 		<form class="send">
+			<label for="textMsg" hidden="true">Your message text</label> 
 			<div class="Growable userText">
 				<pre><span></span><br><br></pre>
 				<textarea id="textMsg" placeholder="Enter your message here"></textarea>
 			</div>
-			<button type="button" aria-label="Send Message" onclick="sendMsg()" tabindex="1">
+			<button type="button" aria-label="Send Message" onclick="sendMsg()">
 				<img src="images/sendButton.png" alt="Send Message" id="sendButton">
 			</button>
 		</form>		
@@ -40,10 +49,10 @@
 		<div class='login'>	
 			<h2>Who are you?</h2>
 			<form>
-				<label>Full Name:&nbsp;&nbsp;</label> 
+				<label for="rUsr">Full Name:&nbsp;&nbsp;</label> 
 				<input type="text" id="rUsr"/> 
 				<br><br>
-				<label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+				<label  for="rEmail">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
 				<input type="text" class="emailIn" id="rEmail"/>
 				<br>
 				<div class="button-div">
@@ -54,8 +63,7 @@
 							Stay Anonymous
 					</button>
 				</div>
-			</form>
-					
+			</form>				
 		</div>	
 		<div class='greyUp'>
 		</div>

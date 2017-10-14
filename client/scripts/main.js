@@ -112,7 +112,6 @@ function printMsg(msg){
     msgL.appendChild(img);
     var topBar=document.createElement("div"); 
     topBar.className="msgText";
-    topBar.tabIndex="1";
     var userName=document.createElement("cite");
     userName.innerHTML=msg.name;
     topBar.appendChild(userName);
@@ -121,17 +120,18 @@ function printMsg(msg){
     date.setAttribute("dateTime", dateObj.getTime());
     topBar.appendChild(date);
     var canDelete=msg.email && msg.email==Babble.user.email;
-    var deleteB=document.createElement("button");
     if(canDelete){
-        deleteB.setAttribute("aria-label", "Delete Message");
+        var deleteB=document.createElement("button");
         deleteB.innerHTML="x";
-        deleteB.tabIndex="1";
+        deleteB.setAttribute("aria-label", "Delete Message");
         deleteB.onclick=function (e) {
             Babble.deleteMessage(msgL.id);
             msgL.remove();
         };
+        topBar.appendChild(deleteB);
+    } else {
+        date.style.paddingRight="1.15rem";
     }
-    topBar.appendChild(deleteB);
     var textDiv=document.createElement("div");
     var textPre=document.createElement("pre");
     var textSpan=document.createElement("span");
@@ -198,18 +198,16 @@ if(incTabCounter()==1){
     setTimeout(Babble.reEnter, 100);
 } 
 
-//on load / on unload
-document.addEventListener("DOMContentLoaded", function(event) { 
-    checkIfRegistred();
-    if(!Babble.isAnon)
-        deleteLogin();       
-    updateToCurrMsg();
-    makeGrowable(document.querySelector(".userText")); 
-    var userTextMsg=document.getElementById("textMsg"); 
-    userTextMsg.addEventListener('input', changeMsgList);
-    window.onresize = changeMsgList;
-    setTimeout(changeMsgList, 10);
-});
+checkIfRegistred();
+if(!Babble.isAnon)
+    deleteLogin();      
+updateToCurrMsg(); 
+makeGrowable(document.querySelector(".userText")); 
+var userTextMsg=document.getElementById("textMsg"); 
+userTextMsg.addEventListener('input', changeMsgList);
+window.onresize = changeMsgList;
+setTimeout(changeMsgList, 10);
+
 window.onbeforeunload = function(e){
     if(decTabCounter()==0)
         Babble.exit();      
