@@ -40,21 +40,22 @@
 	<div id="loginModal">
 		<div class='login'>	
 			<h2>Who are you?</h2>
-			<label>Full Name:&nbsp;&nbsp;</label> 
-			<input type="text" id="rUsr"/> 
-			<br><br>
-			<label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-			<input type="text" class="emailIn" id="rEmail"/>
-			<br>
-			<div class="button-div">
-				<button type="button" class="save" aria-label="Send Message" onclick="login()" tabindex="0">
-					Save
-				</button>	
-				<button type="button" class="anon" aria-label="Stay Anonymous" onclick="deleteLogin()" tabindex="0">
-						Stay Anonymous
-				</button>
-			</div>
-					
+			<form>
+				<label>Full Name:&nbsp;&nbsp;</label> 
+				<input type="text" id="rUsr"/> 
+				<br><br>
+				<label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+				<input type="text" class="emailIn" id="rEmail"/>
+				<br>
+				<div class="button-div">
+					<button type="button" class="save" aria-label="Save" onclick="login()" tabindex="0">
+						Save
+					</button>	
+					<button type="button" class="anon" aria-label="Stay Anonymous" onclick="deleteLogin()" tabindex="0">
+							Stay Anonymous
+					</button>
+				</div>
+			</form>				
 		</div>	
 		<div class='greyUp'>
 		</div>
