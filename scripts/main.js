@@ -130,6 +130,8 @@ function printMsg(msg){
             Babble.deleteMessage(msgL.id);
             msgL.remove();
         };
+    } else {
+        deleteB.innerHTML=" ";
     }
     topBar.appendChild(deleteB);
     var textDiv=document.createElement("div");
