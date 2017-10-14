@@ -121,19 +121,19 @@ function printMsg(msg){
     date.setAttribute("dateTime", dateObj.getTime());
     topBar.appendChild(date);
     var canDelete=msg.email && msg.email==Babble.user.email;
-    var deleteB=document.createElement("button");
     if(canDelete){
-        deleteB.setAttribute("aria-label", "Delete Message");
+        var deleteB=document.createElement("button");
         deleteB.innerHTML="x";
+        deleteB.setAttribute("aria-label", "Delete Message");
         deleteB.tabIndex="1";
         deleteB.onclick=function (e) {
             Babble.deleteMessage(msgL.id);
             msgL.remove();
         };
+        topBar.appendChild(deleteB);
     } else {
-        deleteB.style.color="transparent !important";
+        date.style.paddingRight="1.15rem";
     }
-    topBar.appendChild(deleteB);
     var textDiv=document.createElement("div");
     var textPre=document.createElement("pre");
     var textSpan=document.createElement("span");
