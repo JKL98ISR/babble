@@ -198,18 +198,16 @@ if(incTabCounter()==1){
     setTimeout(Babble.reEnter, 100);
 } 
 
-//on load / on unload
-document.addEventListener("DOMContentLoaded", function(event) { 
-    checkIfRegistred();
-    if(!Babble.isAnon)
-        deleteLogin();       
-    updateToCurrMsg();
-    makeGrowable(document.querySelector(".userText")); 
-    var userTextMsg=document.getElementById("textMsg"); 
-    userTextMsg.addEventListener('input', changeMsgList);
-    window.onresize = changeMsgList;
-    setTimeout(changeMsgList, 10);
-});
+checkIfRegistred();
+if(!Babble.isAnon)
+    deleteLogin();      
+updateToCurrMsg(); 
+makeGrowable(document.querySelector(".userText")); 
+var userTextMsg=document.getElementById("textMsg"); 
+userTextMsg.addEventListener('input', changeMsgList);
+window.onresize = changeMsgList;
+setTimeout(changeMsgList, 10);
+
 window.onbeforeunload = function(e){
     if(decTabCounter()==0)
         Babble.exit();      
