@@ -125,7 +125,6 @@ function printMsg(msg){
         var deleteB=document.createElement("button");
         deleteB.innerHTML="x";
         deleteB.setAttribute("aria-label", "Delete Message");
-        deleteB.tabIndex="1";
         deleteB.onclick=function (e) {
             Babble.deleteMessage(msgL.id);
             msgL.remove();
