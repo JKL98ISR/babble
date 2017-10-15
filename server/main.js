@@ -17,13 +17,10 @@ function getStats(){
 function sendStats(){
     //for clients that are waiting for stats
     var stats=getStats();
-    console.log(stats);
-    console.log("waiting "+statsWaitClients.length);
     while(statsWaitClients.length > 0) {
         var client = statsWaitClients.pop();
         client.send(JSON.stringify(stats));
     }
-    console.log("end waiting "+statsWaitClients.length);
 }
 
 function sendMsgs(){
@@ -49,18 +46,16 @@ app.use(function(req, res, next) {
     next();
   });
 app.post('/messages', function (req, res) {
-    console.log(req.body);
     if(!req.body)
         res.status(400).send(); 
     var msgId=messages.addMessage(req.body);
-    console.log("posted"+msgId);   
     sendMsgs();
     sendStats();
     res.end(JSON.stringify(msgId));
 })
 app.get('/stats', function (req, res) {
+    //insert result to stats waiting array
     statsWaitClients.push(res);
-    console.log("pushed "+statsWaitClients.length);
 })
 app.get('/messages?', function (req, res) {
     var data = req.query;
@@ -73,11 +68,11 @@ app.get('/messages?', function (req, res) {
                 res.send(JSON.stringify(msgArr));
             }         
             else{
+                //add result and the counter to the message waiting array
                 var clientStruct={};
                 clientStruct.res=res;
                 clientStruct.counter=data.counter;
                 msgWaitClients.push(clientStruct);
-                console.log("pushed msg "+msgWaitClients.length);
             }
                 
         }
@@ -85,18 +80,19 @@ app.get('/messages?', function (req, res) {
         res.status(400).send(); 
     }
 })
+//reduce the logged user counter and send the stats
 app.get('/exit', function (req, res) {
     inRoom--;
-    console.log("exited "+inRoom);
     sendStats();
     res.send(); 
 })
+//increase the logged user counter and send the stats
 app.get('/enter', function (req, res) {
     inRoom++;
-    console.log("entered "+inRoom);
     sendStats();
     res.send(); 
 })
+//send the stats
 app.get('/reEnter', function (req, res) {
     sendStats();
     res.send(); 
@@ -117,6 +113,7 @@ app.options("/*", function(req, res, next){
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     res.status(204).send();
 });
+//code 405 for all wrong typed requests
 app.all('/stats', function (req, res) {
     res.status(405).send(); 
 })

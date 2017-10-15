@@ -10,11 +10,12 @@
     }
     messagesHelper.addMessage = function(message) {
         message.id=addedCounter;
+        //add gravatar if user isn't anonymous
         if(message.email)
             message.img=gravAvatarGetter(message.email);
+        //if anonymous set the name as "Anonymous" 
         if(!message.name)
             message.name='Anonymous';
-        //console.log(message);
         msgList.push(message);
         return addedCounter++;;
     }
@@ -24,6 +25,7 @@
             return msgList.slice(counter, msgAmount);
         return [];
     }
+    //removes the message with the given id from the array by setting it's cell as empty
     messagesHelper.deleteMessage = function(id){
         var msgLen=msgList.length;
         for(var i=0;i<msgLen;i++){

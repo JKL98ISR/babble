@@ -6,6 +6,7 @@ window.Babble = (function () {
     serverUrl='http://localhost:9000/';
     isAnon=true;
 
+    //if browser supports local storage and doesn't have 'babble' in the local storage, initialize it
     if(localStorage && !localStorage.getItem("babble"))  {
         var data={};
         data.currentMessage='';
@@ -95,6 +96,7 @@ window.Babble = (function () {
         data.userInfo.email=user.email;
         localStorage.setItem('babble', JSON.stringify(data));
     }
+    //xhr functions
     var ajaxGet = function (urlSuffix, callback) {
         var callback = (typeof callback == 'function' ? callback : false);
         var xhr = new XMLHttpRequest();
@@ -135,6 +137,8 @@ window.Babble = (function () {
         xhr.send(JSON.stringify(data));
         return xhr;
     }
+
+    //return the relevent from this object
     return {
         isAnon: isAnon,
         user: user,
