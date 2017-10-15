@@ -109,7 +109,7 @@ function printMsg(msg){
     msgL.appendChild(img);
     var topBar=document.createElement("div"); 
     topBar.className="msgText";
-    topBar.tabIndex="0";
+    topBar.tabIndex="1";
     var userName=document.createElement("cite");
     userName.innerHTML=msg.name;
     topBar.appendChild(userName);
