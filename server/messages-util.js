@@ -28,6 +28,7 @@
     //removes the message with the given id from the array by setting it's cell as empty
     messagesHelper.deleteMessage = function(id){
         var msgLen=msgList.length;
+		var wasDeleted=false;
         for(var i=0;i<msgLen;i++){
             if(msgList[i].id==id){
                 msgList[i]={};
