@@ -35,7 +35,6 @@ window.Babble = (function () {
         });   
     }
     postMessage=function(message, callback) {
-        console.log("post");
         ajaxPost(
             'messages', message,
             function (response) {
@@ -55,7 +54,6 @@ window.Babble = (function () {
             function (response) {
                 if(response){
                     var deleted=JSON.parse(response);
-                    console.log(response);
                 }
                 if(callback)
                     if(response)
@@ -65,11 +63,9 @@ window.Babble = (function () {
         });
     }
     getStats=function(callback) {
-        console.log("in stats");
         ajaxGet(
             'stats', 
             function (response) {
-                console.log(response);
                 if(callback)
                     if(response)
                         callback(JSON.parse(response));
@@ -85,7 +81,6 @@ window.Babble = (function () {
         ajaxGet('exit', callback);
     }
     reEnter=function(callback) {
-        console.log("reEnter");
         ajaxGet('reEnter', callback);
     }
     function addUserToLocalStorage(){
