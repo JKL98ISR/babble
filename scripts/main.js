@@ -5,9 +5,7 @@ function incTabCounter(){
         return 1;
     var data=JSON.parse(localStorage.getItem("babble"));
     var tabsCounter=parseInt(data.tabsCounter)+1;
-    console.log("tabs0 "+data.tabsCounter);
     data.tabsCounter=tabsCounter;
-    console.log("tabs "+tabsCounter);
     localStorage.setItem('babble', JSON.stringify(data));
     return tabsCounter;
 }
@@ -93,12 +91,11 @@ function sendMsg(){
     return false;
 }
 function printMsg(msg){
-    /*if(document.getElementById(msg.id))
-        return;*/
+    //check if there is a message
     if(msg.id == undefined)
         return;
-    console.log(msg);
     var theMsg=msg.message;
+    //create the message element
     var msgL=document.createElement("il");
     msgL.id=msg.id;
     var dateObj=new Date(msg.timestamp);
@@ -112,6 +109,7 @@ function printMsg(msg){
     msgL.appendChild(img);
     var topBar=document.createElement("div"); 
     topBar.className="msgText";
+    topBar.tabIndex="0";
     var userName=document.createElement("cite");
     userName.innerHTML=msg.name;
     topBar.appendChild(userName);
@@ -151,8 +149,6 @@ function parseAndPrintMsg(response){
         return;
     var msgArr=response;
     var msgLen = msgArr.length;
-    if(msgLen)
-        console.log(msgLen);
     Babble.counter+=msgLen;
     for (i = 0; i < msgLen; i++) {
        printMsg(msgArr[i]);
@@ -164,7 +160,6 @@ function parseMsgAndPoll(response){
 }
 //poll messages
 function pollMsg(){
-    console.log("msg poll");
     Babble.getMessages(Babble.counter, parseMsgAndPoll);
 }
 pollMsg();
@@ -186,12 +181,13 @@ function parseStatsAndPoll(response){
 }
 //poll stats
 function pollStats(){
-    console.log("satas poll");
     Babble.getStats(parseStatsAndPoll);
 }
 
 pollStats();
 
+//increase logged users if only tab or just realese all waiting for stats
+//the timeout is so that the stats are requested first
 if(incTabCounter()==1){
     setTimeout(Babble.enter, 100);
 } else{
